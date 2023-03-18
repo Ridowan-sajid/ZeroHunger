@@ -33,6 +33,7 @@
           <Property Name="quantity" Type="int" />
           <Property Name="quality" Type="varchar" MaxLength="50" />
           <Property Name="restaurantID" Type="int" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Restaurant">
           <Key>
@@ -136,6 +137,7 @@
           <Property Name="restaurantID" Type="Int32" />
           <NavigationProperty Name="EmployeeFoods" Relationship="Self.FK_EmployeeFood_Food" FromRole="Food" ToRole="EmployeeFood" />
           <NavigationProperty Name="Restaurant" Relationship="Self.FK_Food_Food" FromRole="Food" ToRole="Restaurant" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Restaurant">
           <Key>
@@ -233,6 +235,7 @@
           <EntitySetMapping Name="Foods">
             <EntityTypeMapping TypeName="ZeroHungerModel.Food">
               <MappingFragment StoreEntitySet="Food">
+                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="quantity" ColumnName="quantity" />

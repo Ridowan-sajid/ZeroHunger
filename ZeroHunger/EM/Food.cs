@@ -25,6 +25,7 @@ namespace ZeroHunger.EM
         public Nullable<int> quantity { get; set; }
         public string quality { get; set; }
         public Nullable<int> restaurantID { get; set; }
+        public string status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeFood> EmployeeFoods { get; set; }

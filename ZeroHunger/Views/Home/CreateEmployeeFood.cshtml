@@ -1,0 +1,36 @@
+﻿<br />
+<h2>Collect food</h2>
+<br />
+
+
+<form method="post">
+
+
+    Select an employee:
+    <select class="" name="employeeID">
+        @foreach (var f in ViewBag.st)
+        {
+            <option value="@f.id">@f.name</option>
+        }
+    </select>
+
+    Select Food:
+    <select name="foodID">
+        @foreach (var f in Model)
+        {
+            <option value="@f.id">@f.Restaurant.name => @f.name</option>
+        }
+    </select>
+
+
+    <br />
+    <input type="submit" class="btn btn-primary" name="submit" value="Register">
+</form>
+
+@*<form method="post">
+        <input type="text" name="status" value="" />
+
+        <br />
+        <input type="submit" class="btn btn-primary" name="submit" value="Update">
+    </form>*@
+

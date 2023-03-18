@@ -160,6 +160,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +217,14 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\CreateRestaurant.cshtml" />
     <Content Include="Views\Home\LoginRestaurant.cshtml" />
+    <Content Include="Views\Home\CreateFood.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Home\CreateEmployee.cshtml" />
+    <Content Include="Views\Home\LoginEmployee.cshtml" />
+    <Content Include="Views\Home\HomeEmployee.cshtml" />
+    <Content Include="Views\Home\CreateEmployeeFood.cshtml" />
+    <Content Include="Views\Home\EditFood.cshtml" />
+    <Content Include="Views\Home\DetailsFood.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

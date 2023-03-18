@@ -1,11 +1,13 @@
 ﻿<br />
-@if (TempData["Msg"] != null) { 
-<h3 class="alert alert-danger">@TempData["Msg"]</h3>
+@if (TempData["Msg"] != null)
+{
+    <h3 class="alert alert-danger">@TempData["Msg"]</h3>
 }
 <form method="post">
     Name: <input type="text" class="form-control" name="name" /><br />
     Password: <input type="password" class="form-control" name="password" />
     <br />
     <input type="submit" class="btn btn-primary" name="submit" value="Login">
-</form>   
-          
+</form>
+
+
