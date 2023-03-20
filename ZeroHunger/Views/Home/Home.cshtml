@@ -1,5 +1,4 @@
-﻿
-@model IEnumerable<ZeroHunger.EM.Food>
+﻿@model IEnumerable<ZeroHunger.EM.Food>
 <br />
 <h2>Donated Food List</h2>
 <table class="table">
@@ -27,34 +26,33 @@
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.quantity)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.quality)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.status)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Restaurant.name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Restaurant.address)
-    </td>
-    <td>
-        @*        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
-    </td>
-</tr>
-}
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurant.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurant.address)
+            </td>
+            <td>
+                @*        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+            </td>
+        </tr>
+    }
 
 </table>
 
 <h2>Want to donate food? Just click <a class="alert-success" href="/Home/CreateFood">Donate</a></h2>
-

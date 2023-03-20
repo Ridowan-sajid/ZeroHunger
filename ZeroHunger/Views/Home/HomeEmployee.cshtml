@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<ZeroHunger.EM.Food>
-
+<h2>Donated Food list</h2>
 
 <table class="table">
     <tr>
@@ -24,39 +24,55 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.quantity)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.quality)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.status)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Restaurant.name)
-    </td>
-    <td>
-        @foreach (var i in item.EmployeeFoods)
-        {
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurant.name)
+            </td>
+            <td>
+                @foreach (var i in item.EmployeeFoods)
+                {
 
-            @Html.DisplayFor(modelItem => i.Employee.name);
-            <span>,</span>
-        }
-    </td>
-    <td>
-        <a href="/Home/EditFood/@item.id" class="btn btn-primary">Edit</a>
-        <a href="/Home/DetailsFood/@item.id" class="btn btn-primary">Details</a>
-        @Html.ActionLink("Delete", "Delete", new { id = item.id })
-    </td>
-</tr>
-}
+                    @Html.DisplayFor(modelItem => i.Employee.name);
+                    <span>,</span>
+                }
+            </td>
+            <td>
+                <a href="/Home/EditFood/@item.id" class="btn btn-primary">Edit</a>
+                <a href="/Home/DetailsFood/@item.id" class="btn btn-primary">Details</a>
+                @{if (Session["role"].Equals("admin"))
+                    {
+                        if (!item.EmployeeFoods.Any())
+                        {
+                            <a href="/Home/DeleteFood/@item.id" class="btn btn-primary">Delete</a>
+                        }
+
+                    }
+                }
+
+            </td>
+        </tr>
+    }
 
 </table>
+@{
 
-<a href="/Home/CreateEmployeeFood" class="btn btn-primary">Assign Employee to food</a>
+    if (Session["role"].Equals("admin"))
+    {
+        <a href="/Home/CreateEmployeeFood" class="btn btn-primary">Assign Employee to food</a>
+        <a href="/Home/EmployeeFoodList" class="btn btn-primary">Employee Food List</a>
+    }
+}

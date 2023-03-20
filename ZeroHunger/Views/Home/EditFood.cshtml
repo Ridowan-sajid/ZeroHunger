@@ -2,7 +2,34 @@
 <h2>Edit a Food</h2>
 <br />
 <form method="post">
-    Name: <input class="form-control" name="status" value="@Model.status" /><br />
+     <h2>Status: </h2>
+    <select name="status" class="form-control">
+        @{
+            if (@Model.status == "None")
+            {
+                <option value="None">None</option>
+                <option value="Processing">Processing</option>
+                <option value="Received">Received</option>
+            }
+            else if (@Model.status == "Processing")
+            {
+
+                <option value="Processing">Processing</option>
+                <option value="None">None</option>
+                <option value="Received">Received</option>
+            }
+            else if (@Model.status == "Received")
+            {
+                <option value="Received">Received</option>
+                <option value="Processing">Processing</option>
+                <option value="None">None</option>
+                
+            }
+        }
+
+    </select>
+
+
     <br />
     <input type="submit" class="btn btn-primary" name="submit" value="Update">
 </form>
