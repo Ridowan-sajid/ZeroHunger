@@ -38,14 +38,15 @@
                                 {
                                     <li>@Html.ActionLink("Assign Employee to food", "CreateEmployeeFood", "Home")</li>
                                     <li>@Html.ActionLink("Employee Food List", "EmployeeFoodList", "Home")</li>
-
+                                    <li>@Html.ActionLink("Employee List", "AllEmployee", "Home")</li>
+                                    
 
                                 }
-                }
-                else
-                {
-                <li>@Html.ActionLink("Dashboard", "Home", "Home")</li>
-                }
+                            }
+                            else
+                            {
+                                <li>@Html.ActionLink("Dashboard", "Home", "Home")</li>
+                            }
 
 
                             <li>@Html.ActionLink("Logout", "Logout", "Home")</li>

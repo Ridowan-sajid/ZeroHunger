@@ -69,11 +69,7 @@ namespace ZeroHunger.Controllers
                         Session["user"] = user;
                         Session["id"] = user.id;
                         
-                    /*  var returnUrl = Request["ReturnUrl"];
-                        if (returnUrl != null)
-                        {
-                            return Redirect(returnUrl);
-                        }*/
+
                     return RedirectToAction("Home", "Home");
                     }
                     TempData["Msg"] = "Username Password Invalid";
@@ -137,11 +133,7 @@ namespace ZeroHunger.Controllers
                     Session["user"] = user;
                     Session["id"] = user.id;
                     Session["role"] = user.role;
-                    /*  var returnUrl = Request["ReturnUrl"];
-                        if (returnUrl != null)
-                        {
-                            return Redirect(returnUrl);
-                        }*/
+
                     return RedirectToAction("HomeEmployee", "Home");
                 }
                 TempData["Msg"] = "Username Password Invalid";
@@ -206,7 +198,6 @@ namespace ZeroHunger.Controllers
                         select s).SingleOrDefault();
             exst.status = f.status;
 
-            //db.Entry(exst).CurrentValues.SetValues(f);
             db.SaveChanges();
 
             return RedirectToAction("HomeEmployee");
@@ -281,10 +272,51 @@ namespace ZeroHunger.Controllers
 
             return RedirectToAction("EmployeeFoodList");
         }
+        [AdminPermission]
+        public ActionResult AllEmployee()
+        {
+            var db = new ZeroHungerEntities();
+            return View(db.Employees.ToList());
+        }
+        [AdminPermission]
+        [HttpGet]
+        public ActionResult EditEmployee(int id)
+        {
+            var db = new ZeroHungerEntities();
+            var st = (from s in db.Employees
+                      where s.id == id
+                      select s).SingleOrDefault();
+            return View(st);
+        }
 
+        [AdminPermission]
+        [HttpPost]
+        public ActionResult EditEmployee(Employee f)
+        {
+            var db = new ZeroHungerEntities();
+            var exst = (from s in db.Employees
+                        where s.id == f.id
+                        select s).SingleOrDefault();
+            exst.name = f.name;
+            exst.phone = f.phone;
+            exst.email = f.email;
+            
 
+            db.SaveChanges();
 
+            return RedirectToAction("AllEmployee");
+        }
+        [AdminPermission]
+        public ActionResult DeleteEmployee(int id)
+        {
+            var db = new ZeroHungerEntities();
+            var exst = db.Employees.Find(id);
+            
+            db.Employees.Remove(exst);
+            db.SaveChanges();
 
+            return RedirectToAction("AllEmployee");
+        }
 
 
     }
