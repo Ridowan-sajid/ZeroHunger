@@ -51,13 +51,13 @@
                 }
             </td>
             <td>
-                <a href="/Home/EditFood/@item.id" class="btn btn-primary">Edit</a>
-                <a href="/Home/DetailsFood/@item.id" class="btn btn-primary">Details</a>
+                <a href="/Food/EditFood/@item.id" class="btn btn-primary">Edit</a>
+                <a href="/Food/DetailsFood/@item.id" class="btn btn-primary">Details</a>
                 @{if (Session["role"].Equals("admin"))
                     {
                         if (!item.EmployeeFoods.Any())
                         {
-                            <a href="/Home/DeleteFood/@item.id" class="btn btn-primary">Delete</a>
+                            <a href="/Food/DeleteFood/@item.id" class="btn btn-primary">Delete</a>
                         }
 
                     }
@@ -72,8 +72,8 @@
 
     if (Session["role"].Equals("admin"))
     {
-        <a href="/Home/CreateEmployeeFood" class="btn btn-primary">Assign Employee to food</a>
-        <a href="/Home/EmployeeFoodList" class="btn btn-primary">Employee Food List</a>
-        <a href="/Home/AllEmployee" class="btn btn-primary">Employee List</a>
+        <a href="/Employee/CreateEmployeeFood" class="btn btn-primary">Assign Employee to food</a>
+        <a href="/Employee/EmployeeFoodList" class="btn btn-primary">Employee Food List</a>
+        <a href="/Employee/AllEmployee" class="btn btn-primary">Employee List</a>
     }
 }

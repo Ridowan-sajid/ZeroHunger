@@ -5,11 +5,11 @@
 <br />
 @{ if (Session["user"] == null)
     {
-        <a href="/Home/LoginRestaurant" class="btn btn-primary">Log In as restaurant</a>
-        <a href="/home/CreateRestaurant" class="btn btn-primary">Register as Restaurant</a>
+        <a href="/Restaurant/LoginRestaurant" class="btn btn-primary">Log In as restaurant</a>
+        <a href="/Restaurant/CreateRestaurant" class="btn btn-primary">Register as Restaurant</a>
 
-        <a href="/Home/LoginEmployee" class="btn btn-primary">Log In as Employee</a>
-        <a href="/home/CreateEmployee" class="btn btn-primary">Register as Employee</a>
+        <a href="/Employee/LoginEmployee" class="btn btn-primary">Log In as Employee</a>
+        <a href="/Employee/CreateEmployee" class="btn btn-primary">Register as Employee</a>
     }
 }
 
